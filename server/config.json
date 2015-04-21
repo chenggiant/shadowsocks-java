@@ -1,0 +1,7 @@
+{
+    "server":"REMOTE_SERVER_IP",
+    "server_port":8499,
+    "local_port":8388,
+    "password":"hahaha",
+    "timeout":600
+}

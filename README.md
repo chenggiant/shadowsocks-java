@@ -1,23 +1,44 @@
-Shadowsocks-java
-===========
+# shadowsocks-java
 
-shadowsocks-java is a lightweight tunnel proxy which can help you get through
- firewalls. It is a port of [shadowsocks](https://github.com/clowwindy/shadowsocks).
- 
-Only support TABLE encryption.
 
-For Developers
------------
-Example:
+shadowsocks-java is a lightweight tunnel proxy which can help you get through firewalls. It is a java port of [shadowsocks](https://github.com/shadowsocks/shadowsocks).
 
-    Shadowsocks sc = new Shadowsocks("example.com", 1234, "password");
-    sc.start(8080);
-    // Do other things
-    sc.stop();
+In this version, only TABLE encryption is supported.
 
-For Users
------------
-Recommended to use [more stable version](https://github.com/clowwindy/shadowsocks/wiki/Ports-and-Clients).
+For daily usage, please use the [stable version](https://github.com/shadowsocks/shadowsocks)
 
-    javac Shadowsocks.java
-    java Shadowsocks <localPort> <serverAddr> <serverPort> <key>
+
+## Description
+
+### Server
+- Configure the settings in `config.json` in server folder, then copy `config.json` and `server.py` to remote server
+
+````json
+{
+    "server":"REMOTE_SERVER_IP",
+    "server_port":8499,
+    "local_port":8388,
+    "password":"hahaha",
+    "timeout":600
+}
+````
+
+- Run `python server.py`
+
+
+### Client
+
+- Configure the settings in `main()` of `Shadowsocks.java` in local folder, then compile the program using `javac Shadowsocks.java`
+
+````java
+// default config;
+int localPort = 8388;
+String serverIP = "REMOTE_SERVER_IP";
+int serverPort = 8499;
+String password = "hahaha";
+
+````
+
+- Run `java Shadowsocks`
+
+- Or run with your server parameters `java Shadowsocks <localPort> <serverAddr> <serverPort> <key>`

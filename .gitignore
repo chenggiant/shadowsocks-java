@@ -161,3 +161,7 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+*.iml
+*.class
+NioSocketServer.java
+Shadowsocks2.java
